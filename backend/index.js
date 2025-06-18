@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const PORT = 3000;
+const { PrismaClient } = require('./generated/prisma');
+const prisma = new PrismaClient();
 
 app.use(express.json());
 app.use(cors())
@@ -21,14 +23,27 @@ app.get('/search', (req, res) => {
 });
 
 
-app.get('/boards', (req, res) => {
-    res.json({ message: 'Unimplimented (boards)' })
+app.get('/boards', async (req, res) => {
+    const boards = await prisma.board.findMany();
+    res.json(boards);
 });
 
-app.get('/boards/:boardId', (req, res) => {
-    res.json({ message: `Unimplimented (board ${req.params.boardId})` })
+app.get('/boards/:boardId', async (req, res) => {
+    const board = await prisma.board.findFirst({
+        where: { board_id: parseInt(req.params.boardId) }
+    });
+    board.cards = await prisma.card.findMany({
+        where: { board_id: parseInt(req.params.boardId) }
+    });
+    res.json(board);
 });
 
-app.get('/cards/:cardId', (req, res) => {
-    res.json({ message: `Unimplimented (card ${req.params.cardId})` })
+app.get('/cards/:cardId', async (req, res) => {
+    const card = await prisma.card.findFirst({
+        where: { card_id: parseInt(req.params.cardId) }
+    });
+    card.comments = await prisma.comment.findMany({
+        where: { card_id: parseInt(req.params.cardId) }
+    });
+    res.json(card);
 });

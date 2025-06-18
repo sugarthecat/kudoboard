@@ -1,0 +1,20 @@
+div.board{
+  display: block;
+  padding: 12px;
+  margin: 24px;
+  width: 250px;
+  text-align: center;
+  height: 500px;
+  background-color: lightgray;
+  color:black;
+  border-radius: 24px;
+  text-decoration: none;
+  transition-duration: 500ms;
+}
+div.board:hover{
+  box-shadow: 20px 20px;
+}
+
+a.board{
+  text-decoration: none;
+}

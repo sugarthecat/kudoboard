@@ -1,0 +1,4 @@
+.boards-grid {
+    display: flex;
+    flex-direction: row;
+}

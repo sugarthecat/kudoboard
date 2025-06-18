@@ -1,33 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
+import BoardsGrid from './pages/BoardsGrid.jsx'
+import BoardView from './pages/BoardView.jsx'
+import CardView from './pages/CardView.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <BrowserRouter>
+      <div className="top">
+      <header>
+        <h1>Kudoboard</h1>
+      </header>
+        <main>
+          <Routes>
+            <Route path="/" element = {<BoardsGrid/>}/>
+            <Route path="/boards/:boardId" element = {<BoardView/>}/>
+            <Route path="/cards/:cardId" element = {<CardView/>}/>
+          </Routes>
+        </main>
+        </div>
+      <header>
+        Created By T.J. Nickerson, 2025
+      </header>
+      </BrowserRouter>
     </>
   )
 }

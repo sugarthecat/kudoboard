@@ -4,7 +4,7 @@
 
 Submitted by: TJ Nickerson
 
-Deployed Application (**required**): [Kudos Board Deployed Site](ADD_LINK_HERE)
+Deployed Application (**required**): [Kudos Board Deployed Site](https://kudoboard-omlk.onrender.com/)
 
 ### Application Features
 
@@ -81,9 +81,9 @@ Deployed Application (**required**): [Kudos Board Deployed Site](ADD_LINK_HERE)
 - [x] **Delete Card**
   - [x] Users can delete cards.
   - [x] When the user clicks the delete button for a card, the card disappears from the grid of cards.
-- [ ] **Deployment**
-  - [ ] Website is deployed via Render.
-  - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: For ease of grading, please use the deployed version of your website when creating your walkthrough.
+- [x] **Deployment**
+  - [x] Website is deployed via Render.
+  - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: For ease of grading, please use the deployed version of your website when creating your walkthrough.
 
 ####  Stretch Features
 
@@ -139,7 +139,7 @@ Deployed Application (**required**): [Kudos Board Deployed Site](ADD_LINK_HERE)
 
 `TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. Ensure your walkthrough showcases the presence and/or functionality of all features you implemented above (check them off as you film!). Pay attention to any **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS** checkboxes listed above to ensure graders see the full functionality of your website! (🚫 Remove this paragraph after adding walkthrough video)
 
-`ADD_EMBEDDED_CODE_HERE`
+`https://www.loom.com/share/a3b6a5fc83ab4cc88fdc3287aa2968e6?sid=7aa8dce5-2e26-4c3f-abb8-10ff8a179a71`
 
 ### Reflection
 
@@ -153,7 +153,7 @@ I would've spent more time making the display smoother, and more interactable, a
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+I didn't do a public demo, just the video recording.
 
 ### Open-source libraries used
 

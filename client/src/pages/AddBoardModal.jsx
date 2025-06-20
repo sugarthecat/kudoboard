@@ -23,7 +23,7 @@ const AddBoardModal = ({ closeModal, appendBoard }) => {
     setImgId(Math.floor(Math.random() * 80))
   }
   const addBoard = async () => {
-    const feedback = await fetch(`http://localhost:3000/boards`, {
+    const feedback = await fetch(`${import.meta.env.VITE_HOST_URL}/boards`, {
       method: "POST", headers: {
         'Content-Type': 'application/json', // Indicate the content type of the body
         'Accept': 'application/json' // Indicate the expected response content type

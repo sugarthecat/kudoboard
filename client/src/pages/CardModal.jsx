@@ -7,7 +7,7 @@ const CardModal = ({ cardId, cardObj, closeModal }) => {
   const [comments, setComments] = useState([])
   useEffect(() => {
     async function fetchData() {
-      let data = await fetch(`http://localhost:3000/cards/${cardId}`).then(x => x.json())
+      let data = await fetch(`${import.meta.env.VITE_HOST_URL}/cards/${cardId}`).then(x => x.json())
       setComments(data.comments);
     }
     fetchData();

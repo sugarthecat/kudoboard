@@ -21,7 +21,7 @@ const AddCardModal = ({ closeModal, board_id, addCardToBoard }) => {
     setTextContent(event.target.value)
   }
   const addCard = async () => {
-    const feedback = await fetch(`http://localhost:3000/boards/${board_id}`, {
+    const feedback = await fetch(`${import.meta.env.VITE_HOST_URL}/boards/${board_id}`, {
       method: "POST", headers: {
         'Content-Type': 'application/json', // Indicate the content type of the body
         'Accept': 'application/json' // Indicate the expected response content type

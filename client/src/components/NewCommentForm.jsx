@@ -14,7 +14,7 @@ const NewCommentForm = ({addComment, cardId}) => {
             alert("Please enter a message to comment!")
             return;
         }
-        const feedback = await fetch(`http://localhost:3000/cards/${cardId}`, {
+        const feedback = await fetch(`${import.meta.env.VITE_HOST_URL}/cards/${cardId}`, {
             method: "POST", headers: {
                 'Content-Type': 'application/json', // Indicate the content type of the body
                 'Accept': 'application/json' // Indicate the expected response content type

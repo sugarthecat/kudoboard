@@ -4,7 +4,7 @@ import CardModal from '../pages/CardModal';
 const Card = ({ jsonData, upvoted, togglePin, deleteCard }) => {
     const upvote = async (event) => {
         event.stopPropagation()
-        fetch(`http://localhost:3000/cards/${jsonData.card_id}/upvote`,
+        fetch(`${import.meta.env.VITE_HOST_URL}/cards/${jsonData.card_id}/upvote`,
             {
                 method: "PUT", headers: {
                     'Content-Type': 'application/json', // Indicate the content type of the body
@@ -23,7 +23,7 @@ const Card = ({ jsonData, upvoted, togglePin, deleteCard }) => {
     }
     const removeCard = async (event) => {
         event.stopPropagation();
-        const response = await fetch(`http://localhost:3000/cards/${jsonData.card_id}`,
+        const response = await fetch(`${import.meta.env.VITE_HOST_URL}/cards/${jsonData.card_id}`,
             {
                 method: "DELETE", headers: {
                     'Content-Type': 'application/json', // Indicate the content type of the body

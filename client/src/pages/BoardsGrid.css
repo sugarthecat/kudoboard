@@ -18,3 +18,17 @@
 .search-area button:hover{
     background-color: #183848;
 }
+
+
+.dark-mode .search-area button:hover{
+    background-color: #7090a0;
+    color: black;
+}
+
+.dark-mode .search-area{
+    display: inline-block;
+    padding: 25px;
+    border-radius: 25px;
+    background-color: #183848;
+    margin:12px;
+}

@@ -34,7 +34,7 @@ const BoardsGrid = () => {
     setBoards(newBoards)
   }
   const deleteBoard = async (boardId) => {
-    const prompt = `http://localhost:3000/boards/${boardId}`
+    const prompt = `${import.meta.env.VITE_HOST_URL}/boards/${boardId}`
     const feedback = await fetch(prompt, {
       method: "DELETE", headers: {
         'Content-Type': 'application/json', // Indicate the content type of the body

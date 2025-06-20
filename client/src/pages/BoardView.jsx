@@ -11,7 +11,7 @@ const BoardView = () => {
   const [cards, setCards] = useState([]);
   const [modal, setModal] = useState(<></>);
   async function fetchData() {
-    let data = await fetch(`http://localhost:3000/boards/${boardId}`).then(x => x.json())
+    let data = await fetch(`${import.meta.env.VITE_HOST_URL}/boards/${boardId}`).then(x => x.json())
     setName(data.name);
     setAuthor(data.author);
     setType(data.type);
@@ -38,7 +38,7 @@ const BoardView = () => {
   }, [boardId])
   const togglePin = async (cardId) => {
 
-    let feedback = await fetch(`http://localhost:3000/cards/${cardId}/pinned`,
+    let feedback = await fetch(`${import.meta.env.VITE_HOST_URL}/cards/${cardId}/pinned`,
       {
         method: "PUT", headers: {
           'Content-Type': 'application/json', // Indicate the content type of the body

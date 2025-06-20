@@ -13,6 +13,10 @@ div.card {
   transition-duration: 500ms;
   cursor: pointer;
 }
+main.dark-mode div.card{
+  background-color: #305888;
+  color: white;
+}
 div.pin{
   position: absolute;
   top: 15px;

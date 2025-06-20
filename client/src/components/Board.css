@@ -13,6 +13,10 @@ div.board{
   text-decoration: none;
   transition-duration: 500ms;
 }
+main.dark-mode div.board{
+  background-color: #305888;
+  color: white;
+}
 div.board:hover{
   box-shadow: 20px 20px;
 }

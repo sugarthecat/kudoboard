@@ -9,7 +9,6 @@ const CardModal = ({ cardId, cardObj, closeModal }) => {
     async function fetchData() {
       let data = await fetch(`http://localhost:3000/cards/${cardId}`).then(x => x.json())
       setComments(data.comments);
-      console.log(data);
     }
     fetchData();
   }, [cardId]

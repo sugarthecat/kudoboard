@@ -10,11 +10,34 @@ footer {
     padding: 20px;
     padding-left: 10%;
 }
+header.dark-mode,
+footer.dark-mode {
+    background-color: #042445;
+    color: white;
+}
 
 main {
     padding: 20px;
 }
-
+main.dark-mode{
+    background-color: #173655;
+    color: white;
+}
+.dark-mode a{
+    color: white;
+}
+.modal-content{
+    width: 1200px;
+    background-color: white;
+    border-radius: 50px;
+    height:1000px;
+    padding: 60px;
+    cursor: default;
+    overflow-y: scroll;
+  }
+.dark-mode .modal-content{
+    background-color: #173655;
+}
 .modal {
     position: fixed;
     width: 100%;
@@ -37,17 +60,13 @@ button {
     background-color: #60b0ff;
     transition-duration: 500ms;
 }
-.modal-content{
-    width: 1200px;
-    background-color: white;
-    border-radius: 50px;
-    height:1000px;
-    padding: 60px;
-    cursor: default;
-  }
-button:hover {
-    background-color: #305888;
+.dark-mode button {
+    background-color: #042445;
     color: white;
+}
+button:hover {
+    background-color: #60b0ff;
+    color: black;
 }
 p.error{
     color:red
@@ -57,6 +76,17 @@ textarea{
     resize:none;
     width: 800px;
     height: 100px;
+}
+.dark-mode textarea{
+    color: white;
+    background-color: #305888;
+}
+input{
+    padding: 5px;
+}
+.dark-mode input{
+    color: white;
+    background-color: #305888;
 }
 
 @media screen and (max-width: 1250px) and (max-height:1050px){

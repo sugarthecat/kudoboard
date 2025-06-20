@@ -19,9 +19,7 @@ const Card = ({ jsonData, upvoted, togglePin, deleteCard }) => {
     }
     const [modal, setModal] = useState(<></>)
     const closeModal = () => {
-        console.log(0)
         setModal(<></>);
-        console.log(modal)
     }
     const removeCard = async (event) => {
         event.stopPropagation();
@@ -35,7 +33,7 @@ const Card = ({ jsonData, upvoted, togglePin, deleteCard }) => {
         if (response.ok) {
             deleteCard(jsonData.card_id)
         }else{
-            console.log(response)
+            console.error(response)
         }
     }
     const showModal = () => {

@@ -6,3 +6,8 @@
     background-color: #eee;
     margin: 15px;
 }
+
+main.dark-mode .comment{
+    background-color: #305888;
+    color: white;
+  }

@@ -31,7 +31,7 @@ const BoardView = () => {
     setModal(<></>)
   }
   const openAddCardModal = () => {
-    setModal(<AddCardModal board_id={boardId} closeModal={clearModal} />)
+    setModal(<AddCardModal addCardToBoard={addCard} board_id={boardId} closeModal={clearModal} />)
   }
   useEffect(() => {
     fetchData();
@@ -63,6 +63,16 @@ const BoardView = () => {
         newCards.push(cards[i])
       }
     }
+    setCards(newCards)
+  }
+
+  const addCard = (cardObj) => {
+    let newCards = []
+    for (let i = 0; i < cards.length; i++) {
+        newCards.push(cards[i])
+
+    }
+    newCards.push(cardObj)
     setCards(newCards)
   }
   return (

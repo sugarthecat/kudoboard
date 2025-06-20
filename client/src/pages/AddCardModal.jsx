@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './AddCardModal.css';
-const AddCardModal = ({ closeModal, board_id }) => {
+const AddCardModal = ({ closeModal, board_id, addCardToBoard }) => {
   const [name, setName] = useState("")
   const [author, setAuthor] = useState("")
   const [textContent, setTextContent] = useState("")
@@ -36,6 +36,7 @@ const AddCardModal = ({ closeModal, board_id }) => {
       console.error(feedback)
       setError(feedback.error)
     } else {
+      addCardToBoard(feedback)
       closeModal();
     }
   }
@@ -52,7 +53,7 @@ const AddCardModal = ({ closeModal, board_id }) => {
   return (
     <div className="modal" onClick={closeModal} >
       <div className='modal-content' onClick={bodyClicked}>
-        <h1>Add Card {board_id}</h1>
+        <h1>Add Card</h1>
         <p>
           <input value={name} placeholder="Write A Title..." onChange={onNameChange} />
         </p>

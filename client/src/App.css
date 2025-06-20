@@ -1,11 +1,13 @@
 div.top {
     width: 100%;
 }
-
+body{
+    overflow-x: hidden;
+}
 header,
 footer {
     position: relative;
-    width: 100%;
+    width: 100vw;
     background-color: #60b0ff;
     padding: 20px;
     padding-left: 10%;

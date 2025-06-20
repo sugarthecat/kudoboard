@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./Card.css";
 import CardModal from '../pages/CardModal';
-const Card = ({ jsonData, upvoted, togglePin }) => {
+const Card = ({ jsonData, upvoted, togglePin, deleteCard }) => {
     const upvote = async (event) => {
         event.stopPropagation()
         fetch(`http://localhost:3000/cards/${jsonData.card_id}/upvote`,
@@ -23,9 +23,20 @@ const Card = ({ jsonData, upvoted, togglePin }) => {
         setModal(<></>);
         console.log(modal)
     }
-    const removeCard = (event) => {
+    const removeCard = async (event) => {
         event.stopPropagation();
-
+        const response = await fetch(`http://localhost:3000/cards/${jsonData.card_id}`,
+            {
+                method: "DELETE", headers: {
+                    'Content-Type': 'application/json', // Indicate the content type of the body
+                    'Accept': 'application/json' // Indicate the expected response content type
+                }
+            })
+        if (response.ok) {
+            deleteCard(jsonData.card_id)
+        }else{
+            console.log(response)
+        }
     }
     const showModal = () => {
         setModal(<CardModal closeModal={closeModal} cardId={jsonData.card_id} cardObj={jsonData} />)
@@ -35,12 +46,12 @@ const Card = ({ jsonData, upvoted, togglePin }) => {
         togglePin(jsonData.card_id)
     }
     return (
-        <div className={`${ jsonData.isPinned ? "pinned" : ""}`}>
+        <div className={`${jsonData.isPinned ? "pinned" : ""}`}>
             <div className={`card`} onClick={showModal}>
                 <div className='card-content'>
                     <div>
                         <h3>{jsonData.name}</h3>
-                        <p>By {jsonData.author}</p>
+                        <p>{jsonData.author.length == 0 ? "" : `By ${jsonData.author}`}</p>
                     </div>
                     <img src={jsonData.gif_source} />
                 </div>

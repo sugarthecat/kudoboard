@@ -78,9 +78,9 @@ Deployed Application (**required**): [Kudos Board Deployed Site](ADD_LINK_HERE)
   - [x] Update the vote count on the card tile when a user clicks the upvote icon.
   - [x] When the upvote icon is clicked the upvote count increases by 1.
   - [x] A user can upvote a card multiple times.
-- [ ] **Delete Card**
-  - [ ] Users can delete cards.
-  - [ ] When the user clicks the delete button for a card, the card disappears from the grid of cards.
+- [x] **Delete Card**
+  - [x] Users can delete cards.
+  - [x] When the user clicks the delete button for a card, the card disappears from the grid of cards.
 - [ ] **Deployment**
   - [ ] Website is deployed via Render.
   - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: For ease of grading, please use the deployed version of your website when creating your walkthrough.

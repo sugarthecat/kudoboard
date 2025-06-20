@@ -92,11 +92,20 @@ app.delete('/comments/:commentId', async (req, res) => {
     })
     res.json(newComment)
 });
+app.delete('/cards/:cardId', async (req, res) => {
+    const card_id = req.params.cardId
+    const deletedCard = await prisma.card.delete({
+        where: {
+            card_id: parseInt(card_id)
+        }
+    })
+    res.json(deletedCard)
+});
 
 
 app.post('/boards', async (req, res) => {
-    if (!req.body.name || !req.body.author || !req.body.type || !req.body.img_source) {
-        return res.status(400).json({ "error": 'Name, image, type and author are required.' })
+    if (!req.body.name || !req.body.type || !req.body.img_source) {
+        return res.status(400).json({ "error": 'Name, image, and type are required.' })
     }
     const { name, author, type, img_source } = req.body
     const newBoard = await prisma.board.create({

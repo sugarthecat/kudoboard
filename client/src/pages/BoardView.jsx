@@ -55,7 +55,16 @@ const BoardView = () => {
       }
     }
     setCards(newCards)
+  }
 
+  const deleteCard = (cardId) => {
+    let newCards = []
+    for (let i = 0; i < cards.length; i++) {
+      if (cards[i].card_id != cardId) {
+        newCards.push(cards[i])
+      }
+    }
+    setCards(newCards)
   }
   return (
     <div>
@@ -72,7 +81,7 @@ const BoardView = () => {
           const upvoted = () => {
             changeUpvotes(cardId, card.upvotes + 1)
           }
-          return <Card key={card.card_id} jsonData={card} upvoted={upvoted} togglePin={togglePin}></Card>
+          return <Card key={card.card_id} jsonData={card} upvoted={upvoted} togglePin={togglePin} deleteCard={deleteCard}></Card>
         })}
       </div>
       {modal}

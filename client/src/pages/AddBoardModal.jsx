@@ -44,7 +44,7 @@ const AddBoardModal = ({ closeModal, appendBoard }) => {
   }
   return (
     <div className="modal" onClick={closeModal} >
-      <div className='add-board-modal-content' onClick={bodyClicked}>
+      <div className='modal-content' onClick={bodyClicked}>
         <p>
           <input value={name} placeholder="Write A Title..." onChange={onNameChange} />
         </p>

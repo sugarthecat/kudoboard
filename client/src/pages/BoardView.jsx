@@ -16,7 +16,6 @@ const BoardView = () => {
     setAuthor(data.author);
     setType(data.type);
     setCards(data.cards);
-    console.log(data);
   }
   const changeUpvotes = (cardId, upvoteCount) => {
     let newCards = []
@@ -32,7 +31,7 @@ const BoardView = () => {
     setModal(<></>)
   }
   const openAddCardModal = () => {
-    setModal(<AddCardModal closeModal={clearModal} />)
+    setModal(<AddCardModal board_id={boardId} closeModal={clearModal} />)
   }
   useEffect(() => {
     fetchData();
@@ -70,7 +69,7 @@ const BoardView = () => {
     <div>
       <p><a href='../../'>Go Back</a></p>
       <h1>{name}</h1>
-      <h2>{author}</h2>
+      <h2>{author == "" ? "" : `By ${author}`}</h2>
       <p>{type}</p>
       <p>
         <button onClick={openAddCardModal}>Add New Card</button>

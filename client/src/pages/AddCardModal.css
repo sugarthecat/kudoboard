@@ -1,8 +1,13 @@
-.add-card-modal-content{
-  width: 1200px;
-  background-color: white;
-  border-radius: 50px;
-  height:1000px;
-  padding: 60px;
-  cursor: default;
+
+.giphy-gif{
+  width: 500px;
+  height: 300px;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 1250px) and (max-height:1050px){
+  .giphy-gif{
+    width: 300px;
+    height: 200px;
+  }
 }

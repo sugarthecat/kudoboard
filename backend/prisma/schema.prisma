@@ -25,10 +25,11 @@ model Board {
 model Card {
   card_id    Int    @id @default(autoincrement())
   board_id   Int
-  upvotes    Int
+  upvotes    Int    @default(0)
   isPinned   Boolean
   gif_source String
   name       String
+  text_content String
   author     String
   comments   Comment[]
   board      Board  @relation(fields: [board_id], references: [board_id], onDelete: Cascade, onUpdate: Cascade)

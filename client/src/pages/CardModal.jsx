@@ -36,9 +36,9 @@ const CardModal = ({ cardId, cardObj, closeModal }) => {
   }
   return (
     <div className="modal" onClick={closeModal} >
-      <div className='card-modal-content' onClick={bodyClicked}>
+      <div className='modal-content card-modal-content' onClick={bodyClicked}>
         <h1>{cardObj.name}</h1>
-        <p> By {cardObj.author}</p>
+        <p>{cardObj.author.length == 0 ? "" : `By ${cardObj.author}`}</p>
         <img src={`${cardObj.gif_source}`}/>
         <div className='comment-section'>
           {comments.map((comment) => <Comment key={comment.comment_id} removeComment={removeComment} jsonData={comment} />

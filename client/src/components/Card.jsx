@@ -51,7 +51,8 @@ const Card = ({ jsonData, upvoted, togglePin, deleteCard }) => {
                 <div className='card-content'>
                     <div>
                         <h3>{jsonData.name}</h3>
-                        <p>{jsonData.author.length == 0 ? "" : `By ${jsonData.author}`}</p>
+                        <h4>{jsonData.author.length == 0 ? "" : `By ${jsonData.author}`}</h4>
+                        <p>{jsonData.text_content}</p>
                     </div>
                     <img src={jsonData.gif_source} />
                 </div>

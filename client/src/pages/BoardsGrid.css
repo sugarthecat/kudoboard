@@ -3,3 +3,18 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+.search-area{
+    display: inline-block;
+    padding: 25px;
+    border-radius: 25px;
+    background-color: #60b0ff;
+    margin:12px;
+}
+.search-area button{
+    background-color: #305888;
+    color:white;
+    margin: 5px;
+}
+.search-area button:hover{
+    background-color: #183848;
+}

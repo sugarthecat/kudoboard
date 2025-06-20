@@ -16,16 +16,39 @@ app.get('/', (req, res) => {
 });
 
 
-app.get('/search', (req, res) => {
-    res.json({
-        message: `Unimplimented (Search)`,
-        query: req.query,
-    })
-});
 
 
 app.get('/boards', async (req, res) => {
-    const boards = await prisma.board.findMany();
+    const whereObject = {}
+
+    if (req.query.filter) {
+        switch (req.query.filter) {
+            case "All":
+                //do nothing
+                break;
+            case "Congratulations":
+            case "Thank You":
+            case "Inspiration":
+                whereObject.type = req.query.filter
+                break;
+        }
+    }
+    if (req.query.searchPrompt) {
+        whereObject.name = { contains: req.query.searchPrompt, mode: 'insensitive' }
+    }
+    const tags =
+    {
+        where: whereObject,
+        orderBy: [
+            { board_id: 'desc' },
+        ]
+    }
+    if(req.query.filter == "Recent"){
+        tags.take = 6
+    }
+    const boards = await prisma.board.findMany(
+        tags
+    );
     res.json(boards);
 });
 
@@ -36,7 +59,7 @@ app.get('/boards/:boardId', async (req, res) => {
     board.cards = await prisma.card.findMany({
         where: { board_id: parseInt(req.params.boardId) },
         orderBy: [
-            {upvotes: 'desc'},
+            { upvotes: 'desc' },
         ]
     });
     res.json(board);
@@ -126,7 +149,7 @@ app.put('/cards/:cardId/pinned', async (req, res) => {
     const newCard = await prisma.card.update(
         {
             where: { card_id: card.card_id },
-            data: { isPinned: !card.isPinned}
+            data: { isPinned: !card.isPinned }
         },
     )
     res.json(newCard);
@@ -141,4 +164,30 @@ app.delete('/boards/:boardId', async (req, res) => {
         }
     })
     res.json(deletedBoard)
+});
+
+
+
+app.post('/boards/:boardId', async (req, res) => {
+    if (!req.body.name || !req.body.text_content) {
+        return res.status(400).json({ "error": 'Name and content are required.' })
+    }
+    if(!req.body.gif_source){
+        return res.status(400).json({ "error": 'a GIF is required' })
+    }
+    const board_id = parseInt(req.params.boardId)
+    console.log(req.params.boardId,board_id)
+    const { name, author, text_content, gif_source } = req.body
+    const newBoard = await prisma.card.create({
+        data: {
+            name,
+            author,
+            text_content,
+            gif_source,
+            board_id,
+            upvotes:0,
+            isPinned: false,
+        }
+    })
+    res.json(newBoard)
 });

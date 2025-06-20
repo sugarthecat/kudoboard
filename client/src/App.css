@@ -1,15 +1,47 @@
-div.top{
+div.top {
     width: 100%;
 }
 
-header, footer{
-    position:relative;
+header,
+footer {
+    position: relative;
     width: 100%;
     background-color: #60b0ff;
     padding: 20px;
     padding-left: 10%;
 }
 
-main{
+main {
     padding: 20px;
+}
+
+.modal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 99;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 10px;
+    border: 0px;
+    background-color: #60b0ff;
+    transition-duration: 500ms;
+}
+
+button:hover {
+    background-color: #305888;
+    color: white;
+}
+p.error{
+    color:red
 }

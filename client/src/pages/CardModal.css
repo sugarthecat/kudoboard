@@ -1,0 +1,25 @@
+.card-modal-content{
+    width: 1200px;
+    background-color: white;
+    border-radius: 50px;
+    height:1000px;
+    padding: 60px;
+    cursor: default;
+}.card-modal-content img{
+    height: 300px;
+    width:100%;
+    object-fit: contain;
+}
+.comment-section{
+    background-color: #ccc;
+    padding: 15px;
+    border-radius: 15px;
+    overflow-y: scroll;
+    height:400px;
+}
+
+.new-comment textarea{
+    resize:none;
+    width: 800px;
+    height: 100px;
+}

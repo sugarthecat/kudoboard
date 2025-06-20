@@ -1,4 +1,6 @@
 div.board{
+  cursor: pointer;
+  position:relative;
   display: block;
   padding: 12px;
   margin: 24px;
@@ -14,7 +16,17 @@ div.board{
 div.board:hover{
   box-shadow: 20px 20px;
 }
-
+div.board div.delete-button{
+  position: absolute;
+  right:15px;
+  bottom:15px;
+}
+div.board img {
+  width: 250px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
 a.board{
   text-decoration: none;
 }

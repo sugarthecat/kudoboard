@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import BoardsGrid from './pages/BoardsGrid.jsx'
 import BoardView from './pages/BoardView.jsx'
-import CardView from './pages/CardView.jsx'
 
 function App() {
 
@@ -17,7 +16,6 @@ function App() {
           <Routes>
             <Route path="/" element = {<BoardsGrid/>}/>
             <Route path="/boards/:boardId" element = {<BoardView/>}/>
-            <Route path="/cards/:cardId" element = {<CardView/>}/>
           </Routes>
         </main>
         </div>

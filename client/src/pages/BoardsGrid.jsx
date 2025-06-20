@@ -10,7 +10,7 @@ const BoardsGrid = () => {
   const [searchPrompt, setSearchPrompt] = useState("")
   async function fetchBoards(filter, searchPrompt) {
 
-    const basePrompt = `http://localhost:3000/boards?filter=${filter.replaceAll(" ", "%20")}`
+    const basePrompt = `${import.meta.env.VITE_HOST_URL}/boards?filter=${filter.replaceAll(" ", "%20")}`
     let searchTerm = searchPrompt == "" ? "" : `&searchPrompt=${searchPrompt.replaceAll(" ", "%20")}`
     let finalSearchPrompt = basePrompt + searchTerm
     const newBoards = await fetch(finalSearchPrompt).then(x => x.json())

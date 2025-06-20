@@ -1,0 +1,13 @@
+.comment{
+    text-align: left;
+    border-radius: 15px;
+    padding: 5px;
+    padding-left:25px;
+    background-color: #eee;
+    margin: 15px;
+}
+
+main.dark-mode .comment{
+    background-color: #305888;
+    color: white;
+  }
